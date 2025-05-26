@@ -12,7 +12,7 @@ jobs:
       - name: Setup JDK
         uses: actions/setup-java@v4
         with:
-          distribution: oracle
+          distribution: temurin
           java-version: 11
       - uses: cedx/setup-ant@v4
         with:
