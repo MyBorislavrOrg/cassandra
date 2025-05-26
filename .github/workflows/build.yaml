@@ -24,6 +24,7 @@ jobs:
           version: ">=1.10.0"
       - name: build
         run: |
+          ant jar
           ant bintar
       - name: "Upload files"
         uses: actions/upload-artifact@v4
