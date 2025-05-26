@@ -18,9 +18,11 @@ jobs:
         run: |
           sudo apt install -y openjdk-11-jdk
           sudo update-java-alternatives --set /usr/lib/jvm/java-1.11.0-openjdk-amd64
+          echo "JAVA_HOME=${JAVA_HOME}
+          java -version
       - uses: cedx/setup-ant@v4
         with:
-          optional-tasks: true
+          optional-tasks: false
           version: ">=1.10.0"
       - name: build
         run: |
