@@ -9,11 +9,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+#      - name: Setup JDK
+#        uses: actions/setup-java@v4
+#        with:
+#          distribution: adopt
+#          java-version: 11
       - name: Setup JDK
-        uses: actions/setup-java@v4
-        with:
-          distribution: adopt
-          java-version: 11
+        run: |
+          sudo apt intall -y openjdk-11-jdk
+          sudo update-java-alternatives --set /usr/lib/jvm/java-1.11.0-openjdk-amd64
       - uses: cedx/setup-ant@v4
         with:
           optional-tasks: true
