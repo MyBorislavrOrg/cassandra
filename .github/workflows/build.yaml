@@ -16,7 +16,7 @@ jobs:
 #          java-version: 11
       - name: Setup JDK
         run: |
-          sudo apt intall -y openjdk-11-jdk
+          sudo apt install -y openjdk-11-jdk
           sudo update-java-alternatives --set /usr/lib/jvm/java-1.11.0-openjdk-amd64
       - uses: cedx/setup-ant@v4
         with:
