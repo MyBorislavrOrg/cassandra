@@ -1,0 +1,29 @@
+name: build tar
+
+on:
+  workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: oracle
+          java-version: 11
+      - uses: cedx/setup-ant@v4
+        with:
+          optional-tasks: true
+          version: ">=1.10.0"
+      - name: build
+        run: |
+          ant bintar
+      - name: "Upload files"
+        uses: actions/upload-artifact@v4
+        with:
+          include-hidden-files: true
+          path: ${{ github.workspace }}/build/apache-cassandra-.*.tar.gz
+          name: apache-cassandra
